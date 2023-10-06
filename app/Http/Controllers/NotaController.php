@@ -15,13 +15,16 @@ class NotaController extends Controller
         // Obtener la lista de notas con nombres de alumno, curso y profesor
         $notas = DB::table('notas')
             ->select('notas.*', 'alumnos.nombre', 'alumnos.apellido', 'cursos.nombrecurso', 'profesor.nombre as nombre_profesor', 'profesor.apellido as apellido_profesor')
+            // Realiza una consulta en la base de datos para seleccionar información de la tabla 'notas' y de las tablas relacionadas ('alumnos', 'cursos', 'profesor').
             ->join('alumnos', 'notas.alumno_id', '=', 'alumnos.id')
             ->join('cursos', 'notas.cursos_id', '=', 'cursos.id')
             ->join('profesor', 'notas.profesor_id', '=', 'profesor.id')
-            ->get();
-
+            ->get(); // Obtiene los resultados de la consulta y los almacena en la variable '$notas'.
+    
+        // Devuelve la vista 'notas.index' y pasa la variable '$notas' a la vista como datos para ser mostrados en la página.
         return view('notas.index', ['notas' => $notas]);
     }
+    
 
     public function store(Request $request)
     {
@@ -56,19 +59,28 @@ class NotaController extends Controller
 
     public function buscarAlumnos(Request $request)
     {
+        // Obtiene el término de búsqueda ingresado por el usuario desde la solicitud HTTP.
         $searchTerm = $request->input('searchTerm');
+    
+        // Realiza una consulta en la base de datos para buscar alumnos cuyos nombres o apellidos coincidan con el término de búsqueda.
         $alumnos = Alumno::where('nombre', 'LIKE', "%$searchTerm%")
                          ->orWhere('apellido', 'LIKE', "%$searchTerm%")
                          ->get();
-
+    
+        // Inicializa una variable para almacenar el HTML de las sugerencias de alumnos.
         $html = '';
+    
+        // Itera a través de los resultados de la consulta de alumnos.
         foreach ($alumnos as $alumno) {
+            // Genera un elemento 'li' con el ID del alumno como atributo 'data-id' y su nombre completo como contenido.
             $html .= "<li data-id='{$alumno->id}'>{$alumno->nombre} {$alumno->apellido}</li>";
         }
-
+    
+        // Devuelve el HTML generado como respuesta a la solicitud AJAX.
         return $html;
     }
-
+    
+      //misma logica
     public function buscarCursos(Request $request)
     {
         $searchTerm = $request->input('searchTerm');
