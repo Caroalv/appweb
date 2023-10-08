@@ -90,7 +90,7 @@
     <!-- Lista de cursos -->
     <div class="container mt-3">
         <h1>Lista de Cursos</h1>
-        <table class="table">
+        <table class="table" id="example">
             <thead>
                 <tr>
                     <th>Nombre del Curso</th>

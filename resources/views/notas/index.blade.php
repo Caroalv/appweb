@@ -58,7 +58,7 @@
 
 <div class="container">
     <h1>Lista de Notas con DB:: SELECT</h1>
-    <table class="table">
+    <table class="table" id="example">
         <thead>
             <tr>
                 <th>Nota1</th>

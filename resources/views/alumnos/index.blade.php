@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 
@@ -22,7 +23,7 @@
                     
                             <div class="form-group">
                                 <label for="fechanacimiento">Fecha de Nacimiento:</label>
-                                <input type="text" name="fechanacimiento" class="form-control" required>
+                                <input type="date" name="fechanacimiento" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -62,7 +63,7 @@
 
 <div class="container">
     <h1>Lista de Alumnos con DB:: SELECT</h1>
-    <table class="table">
+    <table class="table" id="example">
         <thead>
             <tr>
                 <th>Nombre</th>
