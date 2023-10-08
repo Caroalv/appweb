@@ -188,7 +188,7 @@
     <!-- Lista de Notas -->
     <div class="container mt-3">
         <h1>Lista de Notas</h1>
-        <table class="table">
+        <table id="example" class="table">
             <thead>
                 <tr>
                     <th>Nota 1</th>
