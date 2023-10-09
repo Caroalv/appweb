@@ -28,3 +28,7 @@ Route::get('/notas', [NotaController::class, 'index'])->name('notas.index');
 Route::post('/notas', [NotaController::class, 'store'])->name('notas.store');
 
 Route::post('/cursos/buscar-profesores', [CursoController::class, 'buscarProfesores'])->name('cursos.buscar_profesores');
+
+Route::post('/notas/buscar-alumnos', [NotaController::class, 'buscarAlumnos'])->name('notas.buscar_alumnos');
+Route::post('/notas/buscar-cursos', [NotaController::class, 'buscarCursos'])->name('notas.buscar_cursos');
+Route::post('/notas/buscar-profesores', [NotaController::class, 'buscarProfesores'])->name('notas.buscar_profesores');
