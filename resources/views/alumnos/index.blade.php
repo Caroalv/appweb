@@ -70,7 +70,7 @@
                 <th>Dirección</th>
                 <th>Género</th>
                 <th>Teléfono</th>
-                <th>Correo</th>
+                <th>Corgit reo</th>
             </tr>
         </thead>
         <tbody>
