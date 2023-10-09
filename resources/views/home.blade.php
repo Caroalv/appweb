@@ -21,7 +21,7 @@
                                 <a href="{{ route('alumnos.index') }}" class="btn btn-primary btn-block btn-square btn-green-hover">Ver Alumnos (select/insert)</a>
                             </div>
                             <div class="col-md-6">
-                                <a href="{{ route('profesores.index') }}" class="btn btn-primary btn-block btn-square btn-green-hover">Ver Profesores (select/insert)</a>
+                                <a href="{{ route('profesores.index') }}" class="btn btn-primary btn-block btn-square btn-green-hover">Ver Profesores (/insert)</a>
                             </div>
                         </div>
                         <br>
