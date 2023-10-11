@@ -94,8 +94,11 @@
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 103a115772add18a83c3bb304fbf5e5d8b85547a
     <script>new DataTable('#example', {
     dom: 'Bfrtip',
     buttons: ['copy', 'csv', 'excel', 'pdf', 'print'],
