@@ -3,43 +3,30 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Laravel</title>
 
-    <!-- CSS de Bootstrap -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Agrega tus estilos personalizados aquí si es necesario -->
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body class="antialiased">
-<div class="container mt-5">
-    <!-- Agregamos el encabezado "Bienvenidos" con Bootstrap y centramos el contenido -->
-    <div class="text-center">
-        <h1 class="display-4">Bienvenidos</h1>
-        <p class="lead">¡Gracias por visitar nuestro sitio web!</p>
-    </div>
+<body>
+<div class="container text-center mt-5">
+    <h1>Bienvenido a Laravel</h1>
+    <p>Una plataforma increíble para desarrolladores.</p>
 
     @if (Route::has('login'))
-        <div class="text-center mt-4">
-            @auth
-                <a href="{{ url('/home') }}" class="btn btn-primary">Casa</a>
-            @else
-                <a href="{{ route('login') }}" class="btn btn-outline-primary">Iniciar Sesión</a>
-
-                @if (Route::has('register'))
-                    <a href="{{ route('register') }}" class="btn btn-outline-secondary ml-3">Registro</a>
-                @endif
-            @endauth
-        </div>
+        @auth
+            <a href="{{ url('/home') }}" class="btn btn-primary mt-3">Ir a la página de inicio</a>
+        @else
+            <a href="{{ route('login') }}" class="btn btn-success mt-3">Iniciar Sesión</a>
+            @if (Route::has('register'))
+                <a href="{{ route('register') }}" class="btn btn-info mt-3">Registrarse</a>
+            @endif
+        @endauth
     @endif
-
-    <!-- Tu contenido principal aquí -->
-
 </div>
 
-<!-- Scripts de Bootstrap (jQuery y Popper.js) -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@2.10.2/dist/umd/popper.min.js"></script>
-<!-- Script de Bootstrap -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+<!-- Bootstrap JS (opcional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
