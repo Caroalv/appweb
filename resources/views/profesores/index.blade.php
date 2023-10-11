@@ -52,11 +52,7 @@
     <h1>Lista de Profesores con DB:: SELECT</h1>
 
     <!-- Mostrar la lista de profesores en una tabla -->
-<<<<<<< HEAD
-    <table class="table" id="example">
-=======
     <table id="example" class="table">
->>>>>>> 103a115772add18a83c3bb304fbf5e5d8b85547a
         <thead>
             <tr>
                 <th>Nombre</th>

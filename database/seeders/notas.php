@@ -26,16 +26,6 @@ class notas extends Seeder
             'clave' => bcrypt('contrasena_secreta'), // Se utiliza bcrypt() para cifrar la contraseña
         ]);
 
-        DB::table('alumnos')->insert([
-            'nombre' => 'John Doe',
-            'apellido' => 'Smith',
-            'fechanacimiento' => '2023-09-09',
-            'direccion' => 'Santiago Nonualco',
-            'genero' => 'Masculino',
-            'telefono' => '72197632',
-            'correo' => 'johndo@example.com',
-            'clave' => bcrypt('contrasena_secreta'), // Se utiliza bcrypt() para cifrar la contraseña
-        ]);
         ////////////////////////////////////////////////////////////////////////////////////////////////////////7
         Profesor::create([
             'nombre' => 'Tyler',
