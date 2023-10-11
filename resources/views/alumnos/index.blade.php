@@ -22,7 +22,7 @@
                     
                             <div class="form-group">
                                 <label for="fechanacimiento">Fecha de Nacimiento:</label>
-                                <input type="text" name="fechanacimiento" class="form-control" required>
+                                <input type="date" name="fechanacimiento" class="form-control" required>
                             </div>
 
                             <div class="form-group">
@@ -31,10 +31,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="genero">Genero:</label>
-                                <input type="text" name="genero" class="form-control" required>
-                            </div>
-                    
+                                    <label for="genero">Género:</label>
+                                    <select name="genero" class="form-control" required>
+                                    <option value="masculino">Masculino</option>
+                                    <option value="femenino">Femenino</option>
+                                    <option value="otro">Otro</option>
+                                    </select>
+                            </div>                    
                             <div class="form-group">
                                 <label for="telefono">Teléfono:</label>
                                 <input type="text" name="telefono" class="form-control" required>
