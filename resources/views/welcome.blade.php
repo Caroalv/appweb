@@ -18,7 +18,7 @@
         @auth
             <a href="{{ url('/home') }}" class="btn btn-primary mt-3">Ir a la página de inicio</a>
         @else
-            <a href="{{ route('login') }}" class="btn btn-success mt-3">Iniciar Sesión</a>
+            <a href="{{ route('login') }}" class="btn btn-success mt-3">Iniciar Sesion</a>
             @if (Route::has('register'))
                 <a href="{{ route('register') }}" class="btn btn-info mt-3">Registrarse</a>
             @endif
