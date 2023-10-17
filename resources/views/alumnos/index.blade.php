@@ -50,7 +50,7 @@
                                 <input type="password" name="clave" class="form-control" required>
                             </div>
                     
-                            <button type="submit" class="btn btn-primary">Agregar alumno</button>
+                            <button type="submit" class="btn btn-primary" id="guardar-alumno">Agregar alumno</button>
                         </form>
                     </div>              
         </div>
@@ -89,3 +89,36 @@
 </div>
 @endsection
 
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Selecciona todos los botones con el ID "guardar-alumno"
+        const guardar_alumno = document.querySelector('#guardar-alumno');
+
+        guardar_alumno.addEventListener('click', (event) => {
+            event.preventDefault(); // Detener el envío del formulario
+
+            Swal.fire({
+                title: 'Quieres Guardar el Alumno?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Guardar',
+                denyButtonText: `No Guardar`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({        
+        type: 'success',
+        title: 'Éxito',
+        text: '¡Perfecto!',     
+    });
+                    // Aquí puedes enviar el formulario manualmente
+                    const form = event.target.closest('form');
+                    form.submit();
+                } else if (result.isDenied) {
+                    Swal.fire('Cambios no Guardados', '', 'Ups');
+                }
+            });
+        });
+    });
+</script>
