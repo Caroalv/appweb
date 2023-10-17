@@ -1,67 +1,66 @@
 @extends('layouts.app')
 
-
 @section('content')
-            <!-- Formulario para agregar nuevos alumnos en una caja -->
-            <div class="card mt-3">
-                <div class="card-body">
-                    <h2>Agregar Alumno mediante Insert</h2>
-                    <div class="container my-form">
-                        <!-- Formulario para agregar nuevos profesores -->
-                        <form method="POST" action="/alumnos">
-                            @csrf
-                            <div class="form-group">
-                                <label for="nombre">Nombre:</label>
-                                <input type="text" name="nombre" class="form-control" required>
-                            </div>
-                    
-                            <div class="form-group">
-                                <label for="apellido">Apellido:</label>
-                                <input type="text" name="apellido" class="form-control" required>
-                            </div>
-                    
-                            <div class="form-group">
-                                <label for="fechanacimiento">Fecha de Nacimiento:</label>
-                                <input type="date" name="fechanacimiento" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="direccion">Direccion:</label>
-                                <input type="text" name="direccion" class="form-control" required>
-                            </div>
-
-                            <div class="form-group">
-                                    <label for="genero">Género:</label>
-                                    <select name="genero" class="form-control" required>
-                                    <option value="masculino">Masculino</option>
-                                    <option value="femenino">Femenino</option>
-                                    <option value="otro">Otro</option>
-                                    </select>
-                            </div>                    
-                            <div class="form-group">
-                                <label for="telefono">Teléfono:</label>
-                                <input type="text" name="telefono" class="form-control" required>
-                            </div>
-                    
-                            <div class="form-group">
-                                <label for="correo">Correo:</label>
-                                <input type="email" name="correo" class="form-control" required>
-                            </div>
-                    
-                            <div class="form-group">
-                                <label for="clave">Clave:</label>
-                                <input type="password" name="clave" class="form-control" required>
-                            </div>
-                    
-                            <button type="submit" class="btn btn-primary">Agregar alumno</button>
-                        </form>
+    <!-- Formulario para agregar nuevos alumnos en una caja -->
+    <div class="card mt-3">
+        <div class="card-body">
+            <h2>Agregar Alumno mediante Insert</h2>
+            <div class="container my-form">
+                <!-- Formulario para agregar nuevos profesores -->
+                <form method="POST" action="/alumnos">
+                    @csrf
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" name="nombre" class="form-control" required>
                     </div>
-                </div>
+
+                    <div class="form-group">
+                        <label for="apellido">Apellido:</label>
+                        <input type="text" name="apellido" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="fechanacimiento">Fecha de Nacimiento:</label>
+                        <input type="date" name="fechanacimiento" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="direccion">Direccion:</label>
+                        <input type="text" name="direccion" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="genero">Género:</label>
+                        <select name="genero" class="form-control" required>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" name="telefono" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correo">Correo:</label>
+                        <input type="email" name="correo" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clave">Clave:</label>
+                        <input type="password" name="clave" class="form-control" required>
+                    </div>
+
+                    <button type="button" class="btn btn-primary" id="guardar-alumno">Agregar alumno</button>
+                </form>
             </div>
         </div>
     </div>
 </div>
-
+</div>
+</div>
+</div>
 
 <div class="container">
     <h1>Lista de Alumnos con DB:: SELECT</h1>
@@ -96,4 +95,39 @@
     
     <a href="{{ route('home') }}" class="btn btn-primary">Volver a Home</a>
 </div>
-@endsection
+
+<!-- Agrega estos enlaces en el <head> de tu archivo HTML para cargar la librería de Swal -->
+<link href="https://cdn.jsdelivr.net/npm/sweetalert2@10" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Selecciona todos los botones con el ID "guardar-alumno"
+        const guardar_alumno = document.querySelector('#guardar-alumno');
+
+        guardar_alumno.addEventListener('click', (event) => {
+            event.preventDefault(); // Detener el envío del formulario
+
+            Swal.fire({
+                title: 'Quieres Guardar el Alumno?',
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: 'Guardar',
+                denyButtonText: `No Guardar`,
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Swal.fire({        
+        type: 'success',
+        title: 'Éxito',
+        text: '¡Perfecto!',     
+    });
+                    // Aquí puedes enviar el formulario manualmente
+                    const form = event.target.closest('form');
+                    form.submit();
+                } else if (result.isDenied) {
+                    Swal.fire('Cambios no Guardados', '', 'Ups');
+                }
+            });
+        });
+    });
+</script>
