@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 
 @section('content')
@@ -64,7 +65,7 @@
 
 <div class="container">
     <h1>Lista de Alumnos con DB:: SELECT</h1>
-    <table class="table">
+    <table class="table" id="example">
         <thead>
             <tr>
                 <th>Nombre</th>
